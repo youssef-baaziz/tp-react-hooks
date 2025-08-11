@@ -66,8 +66,9 @@ Problèmes rencontrés :
 Initialement, la recherche s’exécutait à chaque frappe, entraînant trop d’appels API.
 Solution : l’utilisation du return dans useEffect pour nettoyer avec clearTimeout.
 
-![Recherche en temps réel avec debounce](./images/search-demo.png)
+
 ```
+![Recherche en temps réel avec debounce](./images/search-demo.png)
 
 ### Exercice 2 : Context et Internationalisation
 #### Objectif : Gérer les préférences de langue
@@ -87,11 +88,12 @@ _Votre réponse pour l'exercice 2 :_
 - Utilisation du contexte pour accéder à language et changeLanguage.
 - Modification de la langue avec setLanguage().
 
+
+```
 . Version anglaise  
 ![Home in English](./images/app-en.png)
 . Version française  
 ![Accueil en français](./images/app-fr.png)
-```
 
 ### Exercice 3 : Hooks Personnalisés
 #### Objectif : Créer des hooks réutilisables
@@ -126,6 +128,8 @@ Un bouton "Recharger" ou "Reload" relance l’appel API.
 2.Pagination
 
 Gestion des pages avec nextPage et previousPage.
+
+```
 . Bouton de rechargement  
 ![Home in English](./images/reload.png)
 . Chargement lors du clique en recharger  
@@ -135,7 +139,6 @@ Gestion des pages avec nextPage et previousPage.
 ![Home in English](./images/pagination2.png)
 . Navigation avec "Next"  
 ![Accueil en français](./images/next.png)
-```
 
 ## Conclusion
 
