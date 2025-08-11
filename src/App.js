@@ -1,34 +1,42 @@
+
 import React, { createContext, useState } from 'react';
 import ProductList from './components/ProductList';
 import ProductSearch from './components/ProductSearch';
 import ThemeToggle from './components/ThemeToggle';
+import useDebounce from './hooks/useDebounce';
+import { LanguageProvider } from './LanguageContext';
+import LanguageSelector from './components/LanguageSelector';
+import AppTitle from './components/AppTitle'; // FIX: Import AppTitle
 
-// TODO: Exercice 2.1 - Créer le LanguageContext
-
+// Only export ThemeContext here; LanguageContext is provided by LanguageProvider
 export const ThemeContext = createContext();
 
 const App = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
-  // TODO: Exercice 2.2 - Ajouter l'état pour la langue
+  const [searchTerm, setSearchTerm] = useState('');
+  const debouncedSearchTerm = useDebounce(searchTerm);
 
   return (
-    <ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>
-      {/* TODO: Exercice 2.1 - Wrapper avec LanguageContext.Provider */}
-      <div className={`container ${isDarkTheme ? 'bg-dark text-light' : 'bg-light'}`}>
-        <header className="my-4">
-          <h1 className="text-center">Catalogue de Produits</h1>
-          <div className="d-flex justify-content-end gap-2">
-            <ThemeToggle />
-            {/* TODO: Exercice 2.2 - Ajouter le sélecteur de langue */}
+    <LanguageProvider>
+      <ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>
+        <div className={`app-root ${isDarkTheme ? 'theme-dark' : 'theme-light'}`}>
+          <div className="shop-container">
+            <header className="shop-header">
+              <AppTitle />
+              <div className="shop-controls">
+                <ThemeToggle />
+                <LanguageSelector />
+              </div>
+            </header>
+            <main>
+              <ProductSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+              <ProductList search={debouncedSearchTerm} />
+            </main>
           </div>
-        </header>
-        <main>
-          <ProductSearch />
-          <ProductList />
-        </main>
-      </div>
-    </ThemeContext.Provider>
+        </div>
+      </ThemeContext.Provider>
+    </LanguageProvider>
   );
 };
 
-export default App
+export default App;
