@@ -90,9 +90,12 @@ _Votre réponse pour l'exercice 2 :_
 
 
 ```
-. Version anglaise  
+Version anglaise  
+
 ![Home in English](./images/app-en.png)
-. Version française  
+
+Version française  
+
 ![Accueil en français](./images/app-fr.png)
 
 ### Exercice 3 : Hooks Personnalisés
@@ -130,14 +133,21 @@ Un bouton "Recharger" ou "Reload" relance l’appel API.
 Gestion des pages avec nextPage et previousPage.
 
 ```
-. Bouton de rechargement  
+Bouton de rechargement  
+
 ![Home in English](./images/reload.png)
-. Chargement lors du clique en recharger  
+
+Chargement lors du clique en recharger  
+
 ![Accueil en français](./images/loading.png)
-. Pagination 
+
+Pagination 
+
 ![Home in English](./images/pagination1.png)
 ![Home in English](./images/pagination2.png)
-. Navigation avec "Next"  
+
+Navigation avec "Next"  
+
 ![Accueil en français](./images/next.png)
 
 ## Conclusion
